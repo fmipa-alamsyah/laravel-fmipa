@@ -1,7 +1,7 @@
 <!-- Sidebar user panel (optional) -->
 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-        <img src="{{ asset('adminlte/dist/img/logoUI-new.png') }}" class="img-circle elevation-0" alt="User Image">
+        <img src="{{ asset('public/adminlte/dist/img/logoUI-new.png') }}" class="img-circle elevation-0" alt="User Image">
     </div>
     <div class="info">
         <a wire:navigate href="{{ route('admin.dashboard') }}" class="d-block text-light">FMIPA Univ. Indonesia</a>

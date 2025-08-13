@@ -20,7 +20,7 @@
         <div class="col-sm-10">
             <div class="card card-outline card-info">
                 <div class="card-header text-center d-flex flex-column align-items-center p-4">
-                    <img src="{{ asset('adminlte/dist/img/logoUI-new.png') }}" alt="Logo Kampus" class="logo-img" />
+                    <img src="{{ asset('public/adminlte/dist/img/logoUI-new.png') }}" alt="Logo Kampus" class="logo-img" />
                     <span class="card-title">Daftar Akun | LST - FMIPA Universitas Indonesia</span>
                 </div>
                 <div class="card-body">
