@@ -23,10 +23,8 @@ label.required::after {
     color: #28a745 !important;
 }
 
-
 #custom-tabs-three-tab .nav-link.active {
     background-color: white !important;
     color: black !important;
     border-color: #ddd #ddd #fff;
 }
-
