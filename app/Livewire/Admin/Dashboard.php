@@ -11,17 +11,27 @@ use Illuminate\Support\Facades\DB;
 
 class Dashboard extends Component
 {
-    // attribute data-data 1
+    // ...
+    public $total_pemasukan;
+
+    // ...
     public $jumlah_pegawai;
     public $jumlah_mitra;
     public $jumlah_jenis_pengujian;
-    public $total_pemasukan;
 
+    // ...
+    public $jumlah_hasil_pengujian;
+    
+    // ...
     public $status_pengujian;
     public $status_verifikasi;
-
+    
     public function mount()
     {
+
+        // Total Pemasukan
+        $this->total_pemasukan = HasilPengujian::where('status_pembayaran', 'Sudah Dibayar')->where('status_data', 'Aktif')->sum('nominal_pembayaran');
+
         // Informasi Umum Aplikasi
         $this->jumlah_pegawai = [
             'tenaga_ahli' => Pegawai::where('keahlian', 'Tenaga Ahli')->where('status_data', 'Aktif')->count('id_pegawai'),
@@ -30,7 +40,17 @@ class Dashboard extends Component
         ];
         $this->jumlah_mitra = Mitra::where('status_data', 'Aktif')->count('id_mitra');
         $this->jumlah_jenis_pengujian = JenisPengujian::where('status_data', 'Aktif')->count('id_jenis_pengujian');
-        $this->total_pemasukan = HasilPengujian::where('status_pembayaran', 'Sudah Dibayar')->where('status_data', 'Aktif')->sum('nominal_pembayaran');
+        
+        // Informasi Hasil Pengujian
+        $this->jumlah_hasil_pengujian = JenisPengujian::query()
+            ->leftJoin('tb_hasil_pengujian as h', function ($join) {
+                $join->on('tb_jenis_pengujian.id_jenis_pengujian', '=', 'h.id_jenis_pengujian')
+                    ->where('h.status_data', '=', 'Aktif');
+            })
+            ->select('tb_jenis_pengujian.nama_pengujian', DB::raw('COUNT(h.id_hasil_pengujian) as jumlah'))
+            ->groupBy('tb_jenis_pengujian.nama_pengujian')
+            ->orderByDesc('jumlah')
+            ->get();
 
         // Informasi Hasil Pengujian
         $this->status_verifikasi = JenisPengujian::select('nama_pengujian', 'jenis_pengujian')
@@ -64,10 +84,18 @@ class Dashboard extends Component
     public function render()
     {
         return view('livewire.admin.dashboard', [
+            // ...
+            'total_pemasukan' => $this->total_pemasukan,
+            
+            // ...
             'pegawai' => $this->jumlah_pegawai,
             'mitra' => $this->jumlah_mitra,
             'jenis_pengujian' => $this->jumlah_jenis_pengujian,
-            'total_pemasukan' => $this->total_pemasukan,
+            
+            // ...
+            'hasil_pengujian' => $this->jumlah_hasil_pengujian,
+
+            // ...
             'status_verifikasi' => $this->status_verifikasi,
             'status_pengujian' => $this->status_pengujian,
         ]);

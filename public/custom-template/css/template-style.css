@@ -13,9 +13,20 @@ label.required::after {
 }
 
 .badge-custom {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: normal;
-    padding: 5px 10px;
-    line-height: 1.2;
     display: inline-block;
 }
+
+#custom-tabs-three-tab .nav-link,
+#custom-tabs-three-tab .nav-link.active {
+    color: #28a745 !important;
+}
+
+
+#custom-tabs-three-tab .nav-link.active {
+    background-color: white !important;
+    color: black !important;
+    border-color: #ddd #ddd #fff;
+}
+

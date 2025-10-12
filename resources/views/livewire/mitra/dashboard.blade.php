@@ -177,7 +177,7 @@
                 </div>
                 <div class="card-body">
                     <span class="text-dark"><strong>Deskripsi Singkat.</strong></span>
-                    <p class="card-text">
+                    <p class="card-text" style="text-align:justify;">
                         {{ $item->deskripsi_pengujian }}
                     </p>
 
@@ -187,7 +187,7 @@
                     </p>
 
                     <span class="text-dark"><strong>Metode Pengujian</strong></span>
-                    <p class="card-text">
+                    <p class="card-text" style="text-align:justify;">
                         {{ $item->metode_pengujian }}
                     </p>
 

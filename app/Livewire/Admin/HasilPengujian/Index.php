@@ -11,11 +11,16 @@ class Index extends Component
 {
     use WithPagination;
 
-    // attribute class
+    // ...
     public $search = "";
     public $paginate = "25";
     protected $paginationTheme = 'bootstrap';
     protected $queryString = ['search', 'paginate'];
+
+    // ...
+    public $filterType = null;
+    public $filterValue = null;
+
 
     public function render()
     {
@@ -34,6 +39,9 @@ class Index extends Component
                             ->orWhere('jenis_pengujian', 'like', '%' . $this->search . '%');
                     });
                 });
+            })        
+            ->when($this->filterType && $this->filterValue, function ($query) {
+                $query->where($this->filterType, $this->filterValue);
             })
             ->orderBy('tanggal_pendaftaran', 'desc')->paginate($this->paginate);
 
@@ -95,6 +103,13 @@ class Index extends Component
     public function updatedPaginate()
     {
         $this->resetPage();
+    }
+
+    public function filterBy($type, $value)
+    {
+        $this->filterType = $type;
+        $this->filterValue = $value;
+        $this->resetPage(); // reset pagination ke halaman 1
     }
 
     public $nama_mitra, $nama_institusi, $nama_pengujian, $jenis_pengujian;

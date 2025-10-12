@@ -31,6 +31,75 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card card-outline card-success">
+                <div class="card-header border-bottom-0 p-0">
+                    <ul class="nav nav-tabs" id="custom-tabs-three-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="status-pendaftaran-tab" data-toggle="pill" href="#status-pendaftaran" role="tab" aria-controls="status-pendaftaran" aria-selected="true">Status Pendaftaran</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="status-sampel-tab" data-toggle="pill" href="#status-sampel" role="tab" aria-controls="status-sampel" aria-selected="false">Status Sampel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="status-verifikasi-tab" data-toggle="pill" href="#status-verifikasi" role="tab" aria-controls="status-verifikasi" aria-selected="false">Status Verifikasi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="status-pengujian-tab" data-toggle="pill" href="#status-pengujian" role="tab" aria-controls="status-pengujian" aria-selected="false">Status Pengujian</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link" id="status-invoice-tab" data-toggle="pill" href="#status-invoice" role="tab" aria-controls="status-invoice" aria-selected="false">Status Invoice</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link" id="status-pembayaran-tab" data-toggle="pill" href="#status-pembayaran" role="tab" aria-controls="status-pembayaran" aria-selected="false">Status Pembayaran</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link" id="status-kwitansi-tab" data-toggle="pill" href="#status-kwitansi" role="tab" aria-controls="status-kwitansi" aria-selected="false">Status Kwitansi</a>
+                        </li>
+                    </ul>
+                </div>
+                {{-- /.card-header --}}
+                <div class="card-body">
+                    <div class="tab-content" id="custom-tabs-three-tabContent">
+                        <div class="tab-pane fade show active" id="status-pendaftaran" role="tabpanel" aria-labelledby="status-pendaftaran-tab">
+                            <button wire:click="filterBy('status_pendaftaran', 'Sudah Disetujui')" type="button" class="btn btn-outline-success">
+                                Sudah Disetujui
+                                <span class="badge bg-info badge-custom ml-1">{{ number_format($jumlah_status_pendaftaran['sudah_disetujui'] ?? 0) }}</span>
+                            </button>
+                            <button wire:click="filterBy('status_pendaftaran', 'Belum Disetujui')" type="button" class="btn btn-outline-danger">
+                                Belum Disetujui
+                                <span class="badge bg-info badge-custom ml-1">{{ number_format($jumlah_status_pendaftaran['belum_disetujui'] ?? 0) }}</span>
+                            </button>
+                        </div>
+                        <div class="tab-pane fade" id="status-sampel" role="tabpanel" aria-labelledby="status-sampel-tab">
+                            Status Sampel
+                        </div>
+                        <div class="tab-pane fade" id="status-verifikasi" role="tabpanel" aria-labelledby="status-verifikasi-tab">
+                            Status Verifikasi
+                        </div>
+                        <div class="tab-pane fade" id="status-pengujian" role="tabpanel" aria-labelledby="status-pengujian-tab">
+                            Status Pengujian
+                        </div>
+                        <div class="tab-pane fade" id="status-invoice" role="tabpanel" aria-labelledby="status-invoice-tab">
+                            Status Invoice
+                        </div>
+						<div class="tab-pane fade" id="status-pembayaran" role="tabpanel" aria-labelledby="status-pembayaran-tab">
+                            Status Pembayaran
+                        </div>
+						<div class="tab-pane fade" id="status-kwitansi" role="tabpanel" aria-labelledby="status-kwitansi-tab">
+                            Status Kwitansi
+                        </div>
+                    </div>
+                </div>
+                {{-- /.card-body --}}
+            </div>
+            {{-- /.card-success --}}
+        </div>
+        {{-- /.col-sm --}}
+    </div>
+    {{-- /.row --}}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card card-outline card-success">
 
                 <div class="card-header">
                     <div class="mt-2 mb-2">
@@ -44,65 +113,13 @@
                     <div class="row mb-3">
                         <div class="col-sm-1">
                             <select wire:model.live="paginate" class="form-control form-control-border border-success border-width-2" id="paginate">
-                                <option value="10">10</option>
+                                <option value="10">10</option>    
                                 <option value="25">25</option>
                                 <option value="50">50</option>
                             </select>
                         </div>
                         <div class="col-sm-11">
                             <input wire:model.live.debounce.500ms="search" type="text" class="form-control form-control-border border-success border-width-2" id="search" placeholder="Pencarian data berdasarkan nama mitra, nama institusi, nama pengujian, jenis pengujian">
-                        </div>
-                        {{-- /.col --}}
-                    </div>
-                    {{-- /.row --}}
-
-                    <div class="row mb-3">
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-block btn-outline-success">
-                                Status Pendaftaran
-                                <span class="badge bg-danger badge-custom ml-1">{{ number_format($jumlah_status_pendaftaran['belum_disetujui'] ?? 0) }}</span>
-                            </button>
-                        </div>
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-block btn-outline-success">
-                                Status Sampel
-                                <span class="badge bg-danger badge-custom ml-1">{{ number_format($jumlah_status_sampel['belum_dikirim'] ?? 0) }}</span>
-                            </button>
-                        </div>
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-block btn-outline-success">
-                                Status Verifikasi
-                                <span class="badge bg-danger badge-custom ml-1">{{ number_format($jumlah_status_verifikasi['belum_diverifikasi'] ?? 0) }}</span>
-                            </button>
-                        </div>
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-block btn-outline-success">
-                                Status Pengujian
-                                <span class="badge bg-danger badge-custom ml-1">{{ number_format($jumlah_status_pengujian['belum_selesai'] ?? 0) }}</span>
-                            </button>
-                        </div>
-                        {{-- /.col --}}
-                    </div>
-                    {{-- /.row --}}
-
-                    <div class="row mb-3">
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-block btn-outline-success">
-                                Status Invoice
-                                <span class="badge bg-danger badge-custom ml-1">{{ number_format($jumlah_status_invoice['belum_diberikan'] ?? 0) }}</span>
-                            </button>
-                        </div>
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-block btn-outline-success">
-                                Status Pembayaran
-                                <span class="badge bg-danger badge-custom ml-1">{{ number_format($jumlah_status_pembayaran['belum_dibayar'] ?? 0) }}</span>
-                            </button>
-                        </div>
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-block btn-outline-success">
-                                Status Kwitansi
-                                <span class="badge bg-danger badge-custom ml-1">{{ number_format($jumlah_status_kwitansi['belum_diberikan'] ?? 0) }}</span>
-                            </button>
                         </div>
                         {{-- /.col --}}
                     </div>

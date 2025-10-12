@@ -1,7 +1,7 @@
 <!-- Sidebar user panel (optional) -->
 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-        <img src="{{ asset('public/adminlte/dist/img/logoUI-new.png') }}" class="img-circle elevation-0" alt="User Image">
+        <img src="{{ asset('adminlte/dist/img/logoUI-new.png') }}" class="img-circle elevation-0" alt="User Image">
     </div>
     <div class="info">
         <a wire:navigate href="{{ route('admin.dashboard') }}" class="d-block text-light">FMIPA Univ. Indonesia</a>
@@ -52,6 +52,25 @@
                 <i class="nav-icon fa-solid fa-flask"></i>
                 <p class="text-light">Hasil Uji Material</p>
             </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa-solid fa-flask"></i>
+                <p class="text-light">Hasil Uji Material<i class="right fas fa-angle-left"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="fa-solid fa-minus nav-icon"></i>
+                        <p class="text-light">Semua Hasil Uji Material</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"><i class="fa-solid fa-minus nav-icon"></i>
+                        <p class="text-light">Status Pendaftaran</p>
+                    </a>
+                </li>
+            </ul>
         </li>
 
         <!-- Laporan Keuangan -->

@@ -3,6 +3,26 @@
 <div>
     {{-- content livewire. --}}
 
+    {{-- Total Pemasukan --}}
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <div class="callout callout-success">
+                <span class="text-dark"><i class="fa-solid fa-book mr-2"></i>Informasi Pemasukan LST FMIPA Univ. Indonesia</span>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>{{formatRupiah($total_pemasukan)}}</h3>
+                    <p class="text-light">Total Pemasukan</p>
+                </div>
+                <div class="icon"><i class="fa-solid fa-chart-simple"></i></div>
+            </div>
+        </div>
+        {{-- /.col --}}
+    </div>
+    {{-- /.row --}}
+
     {{-- Informasi Umum Aplikasi --}}
     <div class="row mb-4">
         <div class="col-sm-12">
@@ -50,15 +70,29 @@
                 <a wire:navigate href="{{ route('admin.jenis-pengujian.index') }}" class="small-box-footer"><i class="fa-solid fa-clone mr-1"></i> Selengkapnya</a>
             </div>
         </div>
+        {{-- /.col --}}
+    </div>
+    {{-- /.row --}}
+
+    {{-- Informasi Hasil Pengujian --}}
+    <div class="row mb-4">
         <div class="col-sm-12">
-            <div class="small-box bg-success">
-                <div class="inner">
-                    <h3>{{formatRupiah($total_pemasukan)}}</h3>
-                    <p class="text-light">Total Pemasukan</p>
-                </div>
-                <div class="icon"><i class="fa-solid fa-chart-simple"></i></div>
+            <div class="callout callout-success">
+                <span class="text-dark"><i class="fa-solid fa-book mr-2"></i>Informasi Hasil Pengujian</span>
             </div>
         </div>
+        @foreach($hasil_pengujian as $key => $item)
+        <div class="col-sm-3">
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ $item->jumlah }}</h3>
+                    <p>{{ $item->nama_pengujian }}</p>
+                </div>
+                <div class="icon"><i class="fa-solid fa-book"></i></div>
+                <a wire:navigate href="{{ route('admin.hasil-pengujian.index') }}" class="small-box-footer"><i class="fa-solid fa-clone mr-1"></i> Selengkapnya</a>
+            </div>
+        </div>
+        @endforeach
         {{-- /.col --}}
     </div>
     {{-- /.row --}}
