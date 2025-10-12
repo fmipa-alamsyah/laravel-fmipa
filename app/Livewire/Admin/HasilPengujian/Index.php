@@ -18,9 +18,9 @@ class Index extends Component
     protected $queryString = ['search', 'paginate'];
 
     // ...
+    public $viewMode = 'default';
     public $filterType = null;
     public $filterValue = null;
-
 
     public function render()
     {
@@ -109,8 +109,43 @@ class Index extends Component
     {
         $this->filterType = $type;
         $this->filterValue = $value;
-        $this->resetPage(); // reset pagination ke halaman 1
+
+        if ($type == 'status_pendaftaran')
+        {
+            $this->viewMode = 'mode_status_pendaftaran';
+        }
+        elseif ($type == 'status_sampel')
+        {
+            $this->viewMode = 'mode_status_sampel';
+        }
+        elseif ($type == 'status_verifikasi')
+        {
+            $this->viewMode = 'mode_status_verifikasi';
+        }
+        elseif ($type == 'status_pengujian')
+        {
+            $this->viewMode = 'mode_status_pengujian';
+        }
+        elseif ($type == 'status_invoice')
+        {
+            $this->viewMode = 'mode_status_invoice';
+        }
+        elseif ($type == 'status_pembayaran')
+        {
+            $this->viewMode = 'mode_status_pembayaran';
+        }
+        elseif ($type == 'status_kwitansi')
+        {
+            $this->viewMode = 'mode_status_kwitansi';
+        }
+        else
+        {
+            $this->viewMode = 'default';
+        }
+
+        $this->resetPage();
     }
+
 
     public $nama_mitra, $nama_institusi, $nama_pengujian, $jenis_pengujian;
 

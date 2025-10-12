@@ -54,25 +54,6 @@
             </a>
         </li>
 
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fa-solid fa-flask"></i>
-                <p class="text-light">Hasil Uji Material<i class="right fas fa-angle-left"></i></p>
-            </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa-solid fa-minus nav-icon"></i>
-                        <p class="text-light">Semua Hasil Uji Material</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link"><i class="fa-solid fa-minus nav-icon"></i>
-                        <p class="text-light">Status Pendaftaran</p>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
         <!-- Laporan Keuangan -->
         <!-- <li class="nav-item">
             <a wire:navigate href="{{-- route('admin.laporan-keuangan.index') --}}" class="nav-link @yield('adm-laporan-keuangan')">
