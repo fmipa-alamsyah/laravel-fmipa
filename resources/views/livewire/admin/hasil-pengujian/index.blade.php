@@ -91,7 +91,7 @@
                     <div class="row mb-3">
                         <div class="col-sm-1">
                             <select wire:model.live="paginate" class="form-control form-control-border border-success border-width-2" id="paginate">
-                                <option value="10">10</option>    
+                                <option value="10">10</option>
                                 <option value="25">25</option>
                                 <option value="50">50</option>
                             </select>
@@ -113,113 +113,113 @@
                                     <th>Nama Institusi</th>
                                     <th>Nama & Jenis Pengujian</th>
                                     @if ($viewMode == "mode_status_pendaftaran")
-                                        <th>Status Pendaftaran</th>
+                                    <th>Status Pendaftaran</th>
 
                                     @elseif ($viewMode == "mode_status_sampel")
-                                        <th>Status Sampel</th>
+                                    <th>Status Sampel</th>
 
                                     @elseif ($viewMode == "mode_status_verifikasi")
-                                        <th>Status Verifikasi</th>
-                                    
+                                    <th>Status Verifikasi</th>
+
                                     @elseif ($viewMode == "mode_status_pengujian")
-                                        <th>Status Pengujian</th>
+                                    <th>Status Pengujian</th>
 
                                     @elseif ($viewMode == "mode_status_invoice")
-                                        <th>Status Invoice</th>
-                                    
+                                    <th>Status Invoice</th>
+
                                     @elseif ($viewMode == "mode_status_pembayaran")
-                                        <th>Status Pembayaran</th>
-                                    
+                                    <th>Status Pembayaran</th>
+
                                     @elseif ($viewMode == "mode_status_kwitansi")
-                                        <th>Status Kwitansi</th>
+                                    <th>Status Kwitansi</th>
                                     @else
-                                        <th>Tanggal Pendaftaran</th>
-                                        <th>Status Pendaftaran</th>
-                                        <th>Tanggal Sampel</th>
-                                        <th>Jenis Sampel</th>
-                                        <th>Qty Sampel</th>
-                                        <th>Status Sampel</th>
-                                        <th>Tanggal Mulai</th>
-                                        <th>Tanggal Selesai</th>
-                                        <th>Status Verifikasi</th>
-                                        <th>Status Pengujian</th>
-                                        <th>Tanggal Invoice</th>
-                                        <th>No. Invoice Internal</th>
-                                        <th>No. Invoice Eksternal</th>
-                                        <th>Status Invoice</th>
-                                        <th>Tanggal Pembayaran</th>
-                                        <th>Metode Pembayaran</th>
-                                        <th class="text-right">Nominal Pembayaran</th>
-                                        <th>Status Pembayaran</th>
-                                        <th>Tanggal Kwitansi</th>
-                                        <th>No. Kwitansi Internal</th>
-                                        <th>No. Kwitansi Eksternal</th>
-                                        <th>Status Kwitansi</th>
-                                        <th>Link Download</th>
-                                        <th>Keterangan</th>
+                                    <th>Tanggal Pendaftaran</th>
+                                    <th>Status Pendaftaran</th>
+                                    <th>Tanggal Sampel</th>
+                                    <th>Jenis Sampel</th>
+                                    <th>Qty Sampel</th>
+                                    <th>Status Sampel</th>
+                                    <th>Tanggal Mulai</th>
+                                    <th>Tanggal Selesai</th>
+                                    <th>Status Verifikasi</th>
+                                    <th>Status Pengujian</th>
+                                    <th>Tanggal Invoice</th>
+                                    <th>No. Invoice Internal</th>
+                                    <th>No. Invoice Eksternal</th>
+                                    <th>Status Invoice</th>
+                                    <th>Tanggal Pembayaran</th>
+                                    <th>Metode Pembayaran</th>
+                                    <th class="text-right">Nominal Pembayaran</th>
+                                    <th>Status Pembayaran</th>
+                                    <th>Tanggal Kwitansi</th>
+                                    <th>No. Kwitansi Internal</th>
+                                    <th>No. Kwitansi Eksternal</th>
+                                    <th>Status Kwitansi</th>
+                                    <th>Link Download</th>
+                                    <th>Keterangan</th>
                                     @endif
                                 </thead>
                                 <tbody>
                                     @foreach($data as $key => $item)
-                                        <tr>
-                                            <td>{{ number_format($data->firstItem() + $key) }}</td>
-                                            <td>
-                                                <a class="btn btn-sm btn-outline-info" wire:click="showData({{ $item->id_hasil_pengujian }})" data-toggle="modal" data-target="#confirmModal"><i class="fa-solid fa-display"></i></a>
-                                                <a class="btn btn-sm btn-outline-warning" wire:navigate href="{{ route('admin.hasil-pengujian.edit', ['id' => $item->id_hasil_pengujian]) }}"><i class="fa-solid fa-edit"></i></a>
-                                                <a class="btn btn-sm btn-outline-danger" wire:navigate href="{{ route('admin.hasil-pengujian.drop', ['id' => $item->id_hasil_pengujian]) }}"><i class="fa-solid fa-trash"></i></a>
-                                            </td>
-                                            <td>{{ $item->mitra->nama_mitra ?? '-' }}</td>
-                                            <td>{{ $item->mitra->nama_institusi ?? '-' }}</td>
-                                            <td>{{ $item->jenisPengujian->nama_pengujian ?? '-' }} + {{ $item->jenisPengujian->jenis_pengujian ?? '-' }}</td>
-                                            
-                                            @if ($viewMode == "mode_status_pendaftaran")
-                                                <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_pendaftaran ?? '-' }}</span></td>
-                                            
-                                            @elseif ($viewMode == "mode_status_sampel")
-                                                <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_sampel ?? '-' }}</span></td>
+                                    <tr>
+                                        <td>{{ number_format($data->firstItem() + $key) }}</td>
+                                        <td>
+                                            <a class="btn btn-sm btn-outline-info" wire:click="showData({{ $item->id_hasil_pengujian }})" data-toggle="modal" data-target="#confirmModal"><i class="fa-solid fa-display"></i></a>
+                                            <a class="btn btn-sm btn-outline-warning" wire:navigate href="{{ route('admin.hasil-pengujian.edit', ['id' => $item->id_hasil_pengujian]) }}"><i class="fa-solid fa-edit"></i></a>
+                                            <a class="btn btn-sm btn-outline-danger" wire:navigate href="{{ route('admin.hasil-pengujian.drop', ['id' => $item->id_hasil_pengujian]) }}"><i class="fa-solid fa-trash"></i></a>
+                                        </td>
+                                        <td>{{ $item->mitra->nama_mitra ?? '-' }}</td>
+                                        <td>{{ $item->mitra->nama_institusi ?? '-' }}</td>
+                                        <td>{{ $item->jenisPengujian->nama_pengujian ?? '-' }} + {{ $item->jenisPengujian->jenis_pengujian ?? '-' }}</td>
 
-                                            @elseif ($viewMode == "mode_status_verifikasi")
-                                                <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_verifikasi ?? '-' }}</span></td>    
-                                            
-                                            @elseif ($viewMode == "mode_status_pengujian")
-                                                <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_pengujian ?? '-' }}</span></td>
-                                            
-                                            @elseif ($viewMode == "mode_status_invoice")
-                                                <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_invoice ?? '-' }}</span></td>
-                                            
-                                            @elseif ($viewMode == "mode_status_pembayaran")
-                                                <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_pembayaran ?? '-' }}</span></td>
-                                            
-                                            @elseif ($viewMode == "mode_status_kwitansi")
-                                                <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_kwitansi ?? '-' }}</span></td>
-                                    
-                                            @else
-                                                <td>{{ $item->tanggal_pendaftaran ? \Carbon\Carbon::parse($item->tanggal_pendaftaran)->format('Y-m-d') : '-' }}</td>
-                                                <td>{{ $item->status_pendaftaran ?? '-' }}</td>
-                                                <td>{{ $item->tanggal_sampel ? \Carbon\Carbon::parse($item->tanggal_sampel)->format('Y-m-d') : '-' }}</td>
-                                                <td>{{ $item->jenis_sampel ?? '-' }}</td>
-                                                <td>{{ $item->qty_sampel ?? '-' }}</td>
-                                                <td>{{ $item->status_sampel ?? '-' }}</td>
-                                                <td>{{ $item->tanggal_pengujian_mulai ? \Carbon\Carbon::parse($item->tanggal_pengujian_mulai)->format('Y-m-d') : '-' }}</td>
-                                                <td>{{ $item->tanggal_pengujian_selesai ? \Carbon\Carbon::parse($item->tanggal_pengujian_selesai)->format('Y-m-d') : '-' }}</td>
-                                                <td>{{ $item->status_verifikasi ?? '-'}}</td>
-                                                <td>{{ $item->status_pengujian ?? '-'}}</td>
-                                                <td>{{ $item->tanggal_invoice ? \Carbon\Carbon::parse($item->tanggal_invoice)->format('Y-m-d') : '-' }}</td>
-                                                <td>{{ $item->nomor_invoice_internal ?? '-' }}</td>
-                                                <td>{{ $item->nomor_invoice_eksternal ?? '-' }}</td>
-                                                <td>{{ $item->status_invoice ?? '-' }}</td>
-                                                <td>{{ $item->tanggal_pembayaran ? \Carbon\Carbon::parse($item->tanggal_pembayaran)->format('Y-m-d') : '-' }}</td>
-                                                <td>{{ $item->metode_pembayaran ?? '-'}}</td>
-                                                <td class="text-right">{{ formatRupiah($item->nominal_pembayaran) }}</td>
-                                                <td>{{ $item->status_pembayaran ?? '-'}}</td>
-                                                <td>{{ $item->tanggal_kwitansi ? \Carbon\Carbon::parse($item->tanggal_kwitansi)->format('Y-m-d') : '-' }}</td>
-                                                <td>{{ $item->nomor_kwitansi_internal ?? '-'}}</td>
-                                                <td>{{ $item->nomor_kwitansi_eksternal ?? '-'}}</td>
-                                                <td>{{ $item->status_kwitansi ?? '-'}}</td>
-                                                <td>{{ $item->file_hasil_pengujian ?? '-'}}</td>
-                                                <td>{{ $item->keterangan ?? '-'}}</td>
-                                            @endif
-                                        </tr>
+                                        @if ($viewMode == "mode_status_pendaftaran")
+                                        <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_pendaftaran ?? '-' }}</span></td>
+
+                                        @elseif ($viewMode == "mode_status_sampel")
+                                        <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_sampel ?? '-' }}</span></td>
+
+                                        @elseif ($viewMode == "mode_status_verifikasi")
+                                        <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_verifikasi ?? '-' }}</span></td>
+
+                                        @elseif ($viewMode == "mode_status_pengujian")
+                                        <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_pengujian ?? '-' }}</span></td>
+
+                                        @elseif ($viewMode == "mode_status_invoice")
+                                        <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_invoice ?? '-' }}</span></td>
+
+                                        @elseif ($viewMode == "mode_status_pembayaran")
+                                        <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_pembayaran ?? '-' }}</span></td>
+
+                                        @elseif ($viewMode == "mode_status_kwitansi")
+                                        <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_kwitansi ?? '-' }}</span></td>
+
+                                        @else
+                                        <td>{{ $item->tanggal_pendaftaran ? \Carbon\Carbon::parse($item->tanggal_pendaftaran)->format('Y-m-d') : '-' }}</td>
+                                        <td>{{ $item->status_pendaftaran ?? '-' }}</td>
+                                        <td>{{ $item->tanggal_sampel ? \Carbon\Carbon::parse($item->tanggal_sampel)->format('Y-m-d') : '-' }}</td>
+                                        <td>{{ $item->jenis_sampel ?? '-' }}</td>
+                                        <td>{{ $item->qty_sampel ?? '-' }}</td>
+                                        <td>{{ $item->status_sampel ?? '-' }}</td>
+                                        <td>{{ $item->tanggal_pengujian_mulai ? \Carbon\Carbon::parse($item->tanggal_pengujian_mulai)->format('Y-m-d') : '-' }}</td>
+                                        <td>{{ $item->tanggal_pengujian_selesai ? \Carbon\Carbon::parse($item->tanggal_pengujian_selesai)->format('Y-m-d') : '-' }}</td>
+                                        <td>{{ $item->status_verifikasi ?? '-'}}</td>
+                                        <td>{{ $item->status_pengujian ?? '-'}}</td>
+                                        <td>{{ $item->tanggal_invoice ? \Carbon\Carbon::parse($item->tanggal_invoice)->format('Y-m-d') : '-' }}</td>
+                                        <td>{{ $item->nomor_invoice_internal ?? '-' }}</td>
+                                        <td>{{ $item->nomor_invoice_eksternal ?? '-' }}</td>
+                                        <td>{{ $item->status_invoice ?? '-' }}</td>
+                                        <td>{{ $item->tanggal_pembayaran ? \Carbon\Carbon::parse($item->tanggal_pembayaran)->format('Y-m-d') : '-' }}</td>
+                                        <td>{{ $item->metode_pembayaran ?? '-'}}</td>
+                                        <td class="text-right">{{ formatRupiah($item->nominal_pembayaran) }}</td>
+                                        <td>{{ $item->status_pembayaran ?? '-'}}</td>
+                                        <td>{{ $item->tanggal_kwitansi ? \Carbon\Carbon::parse($item->tanggal_kwitansi)->format('Y-m-d') : '-' }}</td>
+                                        <td>{{ $item->nomor_kwitansi_internal ?? '-'}}</td>
+                                        <td>{{ $item->nomor_kwitansi_eksternal ?? '-'}}</td>
+                                        <td>{{ $item->status_kwitansi ?? '-'}}</td>
+                                        <td>{{ $item->file_hasil_pengujian ?? '-'}}</td>
+                                        <td>{{ $item->keterangan ?? '-'}}</td>
+                                        @endif
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
