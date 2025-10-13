@@ -128,10 +128,10 @@
                                         <th>Status Invoice</th>
                                     
                                     @elseif ($viewMode == "mode_status_pembayaran")
-                                        <th>Status Invoice</th>
+                                        <th>Status Pembayaran</th>
                                     
                                     @elseif ($viewMode == "mode_status_kwitansi")
-                                        <th>Status Invoice</th>
+                                        <th>Status Kwitansi</th>
                                     @else
                                         <th>Tanggal Pendaftaran</th>
                                         <th>Status Pendaftaran</th>
