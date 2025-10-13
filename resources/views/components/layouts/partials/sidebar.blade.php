@@ -40,7 +40,7 @@
 
         <!-- Jenis Pengujian -->
         <li class="nav-item">
-            <a wire:navigate href="{{ route('admin.jenis-pengujian.index') }}" class="nav-link @yield('adm-jenis-pengujian')">
+            <a wire:navigate href="{{ route('public/admin.jenis-pengujian.index') }}" class="nav-link @yield('adm-jenis-pengujian')">
                 <i class="nav-icon fa-solid fa-flask"></i>
                 <p class="text-light">Jenis Uji Material</p>
             </a>
@@ -48,7 +48,7 @@
 
         <!-- Hasil Pengujian -->
         <li class="nav-item">
-            <a wire:navigate href="{{ route('admin.hasil-pengujian.index') }}" class="nav-link @yield('adm-hasil-pengujian')">
+            <a wire:navigate href="{{ route('public/admin.hasil-pengujian.index') }}" class="nav-link @yield('adm-hasil-pengujian')">
                 <i class="nav-icon fa-solid fa-flask"></i>
                 <p class="text-light">Hasil Uji Material</p>
             </a>
