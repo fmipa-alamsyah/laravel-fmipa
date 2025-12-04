@@ -9,6 +9,6 @@ class HasilPengujianSeeder extends Seeder
 {
     public function run(): void
     {
-        HasilPengujian::factory()->count(10000)->create();
+        HasilPengujian::factory()->count(50)->create();
     }
 }

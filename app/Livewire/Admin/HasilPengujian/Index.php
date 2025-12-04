@@ -13,7 +13,7 @@ class Index extends Component
 
     // ...
     public $search = "";
-    public $paginate = "25";
+    public $paginate = "50";
     protected $paginationTheme = 'bootstrap';
     protected $queryString = ['search', 'paginate'];
 
@@ -39,7 +39,7 @@ class Index extends Component
                             ->orWhere('jenis_pengujian', 'like', '%' . $this->search . '%');
                     });
                 });
-            })        
+            })
             ->when($this->filterType && $this->filterValue, function ($query) {
                 $query->where($this->filterType, $this->filterValue);
             })
@@ -110,36 +110,21 @@ class Index extends Component
         $this->filterType = $type;
         $this->filterValue = $value;
 
-        if ($type == 'status_pendaftaran')
-        {
+        if ($type == 'status_pendaftaran') {
             $this->viewMode = 'mode_status_pendaftaran';
-        }
-        elseif ($type == 'status_sampel')
-        {
+        } elseif ($type == 'status_sampel') {
             $this->viewMode = 'mode_status_sampel';
-        }
-        elseif ($type == 'status_verifikasi')
-        {
+        } elseif ($type == 'status_verifikasi') {
             $this->viewMode = 'mode_status_verifikasi';
-        }
-        elseif ($type == 'status_pengujian')
-        {
+        } elseif ($type == 'status_pengujian') {
             $this->viewMode = 'mode_status_pengujian';
-        }
-        elseif ($type == 'status_invoice')
-        {
+        } elseif ($type == 'status_invoice') {
             $this->viewMode = 'mode_status_invoice';
-        }
-        elseif ($type == 'status_pembayaran')
-        {
+        } elseif ($type == 'status_pembayaran') {
             $this->viewMode = 'mode_status_pembayaran';
-        }
-        elseif ($type == 'status_kwitansi')
-        {
+        } elseif ($type == 'status_kwitansi') {
             $this->viewMode = 'mode_status_kwitansi';
-        }
-        else
-        {
+        } else {
             $this->viewMode = 'default';
         }
 

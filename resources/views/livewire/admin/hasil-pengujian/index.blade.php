@@ -110,27 +110,35 @@
                                     <th>#</th>
                                     <th>Aksi</th>
                                     <th>Nama Mitra</th>
-                                    <th>Nama Institusi</th>
                                     <th>Nama & Jenis Pengujian</th>
                                     @if ($viewMode == "mode_status_pendaftaran")
+                                    <th>Tanggal Pendaftaran</th>
+                                    <th>Qty Sampel</th>
                                     <th>Status Pendaftaran</th>
 
                                     @elseif ($viewMode == "mode_status_sampel")
+                                    <th>Tanggal Sampel</th>
+                                    <th>Qty Sampel</th>
                                     <th>Status Sampel</th>
 
                                     @elseif ($viewMode == "mode_status_verifikasi")
                                     <th>Status Verifikasi</th>
 
                                     @elseif ($viewMode == "mode_status_pengujian")
+                                    <th>Tanggal Mulai</th>
+                                    <th>Tanggal Selesai</th>
                                     <th>Status Pengujian</th>
 
                                     @elseif ($viewMode == "mode_status_invoice")
+                                    <th>Tanggal Invoice</th>
                                     <th>Status Invoice</th>
 
                                     @elseif ($viewMode == "mode_status_pembayaran")
+                                    <th>Tanggal Pembayaran</th>
                                     <th>Status Pembayaran</th>
 
                                     @elseif ($viewMode == "mode_status_kwitansi")
+                                    <th>Tanggal Kwitansi</th>
                                     <th>Status Kwitansi</th>
                                     @else
                                     <th>Tanggal Pendaftaran</th>
@@ -169,28 +177,37 @@
                                             <a class="btn btn-sm btn-outline-danger" wire:navigate href="{{ route('admin.hasil-pengujian.drop', ['id' => $item->id_hasil_pengujian]) }}"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                         <td>{{ $item->mitra->nama_mitra ?? '-' }}</td>
-                                        <td>{{ $item->mitra->nama_institusi ?? '-' }}</td>
+
                                         <td>{{ $item->jenisPengujian->nama_pengujian ?? '-' }} + {{ $item->jenisPengujian->jenis_pengujian ?? '-' }}</td>
 
                                         @if ($viewMode == "mode_status_pendaftaran")
+                                        <td>{{ $item->tanggal_pendaftaran ? \Carbon\Carbon::parse($item->tanggal_pendaftaran)->format('Y-m-d') : '-' }}</td>
+                                        <td>{{ $item->qty_sampel ?? '-' }}</td>
                                         <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_pendaftaran ?? '-' }}</span></td>
 
                                         @elseif ($viewMode == "mode_status_sampel")
+                                        <td>{{ $item->tanggal_sampel ? \Carbon\Carbon::parse($item->tanggal_sampel)->format('Y-m-d') : '-' }}</td>
+                                        <td>{{ $item->qty_sampel ?? '-' }}</td>
                                         <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_sampel ?? '-' }}</span></td>
 
                                         @elseif ($viewMode == "mode_status_verifikasi")
                                         <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_verifikasi ?? '-' }}</span></td>
 
                                         @elseif ($viewMode == "mode_status_pengujian")
+                                        <td>{{ $item->tanggal_pengujian_mulai ? \Carbon\Carbon::parse($item->tanggal_pengujian_mulai)->format('Y-m-d') : '-' }}</td>
+                                        <td>{{ $item->tanggal_pengujian_selesai ? \Carbon\Carbon::parse($item->tanggal_pengujian_selesai)->format('Y-m-d') : '-' }}</td>
                                         <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_pengujian ?? '-' }}</span></td>
 
                                         @elseif ($viewMode == "mode_status_invoice")
+                                        <td>{{ $item->tanggal_invoice ? \Carbon\Carbon::parse($item->tanggal_invoice)->format('Y-m-d') : '-' }}</td>
                                         <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_invoice ?? '-' }}</span></td>
 
                                         @elseif ($viewMode == "mode_status_pembayaran")
+                                        <td>{{ $item->tanggal_pembayaran ? \Carbon\Carbon::parse($item->tanggal_pembayaran)->format('Y-m-d') : '-' }}</td>
                                         <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_pembayaran ?? '-' }}</span></td>
 
                                         @elseif ($viewMode == "mode_status_kwitansi")
+                                        <td>{{ $item->tanggal_kwitansi ? \Carbon\Carbon::parse($item->tanggal_kwitansi)->format('Y-m-d') : '-' }}</td>
                                         <td><span class="badge bg-danger badge-custom ml-1">{{ $item->status_kwitansi ?? '-' }}</span></td>
 
                                         @else
