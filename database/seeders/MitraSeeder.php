@@ -9,6 +9,6 @@ class MitraSeeder extends Seeder
 {
     public function run(): void
     {
-        Mitra::factory()->count(100)->create();
+        Mitra::factory()->count(500)->create();
     }
 }

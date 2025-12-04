@@ -1,7 +1,7 @@
 <!-- Left navbar links -->
 <ul class="navbar-nav mr-auto">
     <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a href="#" class="nav-link" data-widget="pushmenu" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
         @if (session('login_as') === 'pegawai')
@@ -18,6 +18,6 @@
         <a href="#" class="nav-link text-dark">{{ session('session_name') }}</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button"><i class="fas fa-expand-arrows-alt"></i></a>
+        <a href="#" class="nav-link" data-widget="fullscreen" role="button"><i class="fas fa-expand-arrows-alt"></i></a>
     </li>
 </ul>

@@ -12,7 +12,7 @@ class Index extends Component
 
     // attribute class
     public $search = "";
-    public $paginate = "25";
+    public $paginate = "1000";
     protected $paginationTheme = 'bootstrap';
     protected $queryString = ['search', 'paginate'];
 
