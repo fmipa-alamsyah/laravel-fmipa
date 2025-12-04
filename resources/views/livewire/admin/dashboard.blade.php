@@ -4,7 +4,7 @@
     {{-- content livewire. --}}
 
     {{-- Total Pemasukan --}}
-    <div class="row mb-4">
+    <!-- <div class="row mb-4">
         <div class="col-sm-12">
             <div class="callout callout-success">
                 <span class="text-dark">
@@ -22,7 +22,7 @@
             </div>
         </div>
         {{-- /.col --}}
-    </div>
+    </div> -->
     {{-- /.row --}}
 
     {{-- Informasi Umum Aplikasi --}}
